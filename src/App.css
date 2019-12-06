@@ -1,22 +1,28 @@
-.App {
-  text-align: center;
+table {
+  border: 1px solid black;
 }
 
-.App-logo {
-  height: 40vmin;
+.mine {
+  background-color: red;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.flagged {
+  background-color: orange;
+  border-style: outset;
 }
 
-.App-link {
-  color: #09d3ac;
+.waiting {
+  border-style: outset;
+}
+
+.number,
+.empty {
+  background-color: ghostwhite;
+  border-style: inset;
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
 }
