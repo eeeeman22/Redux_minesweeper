@@ -4,34 +4,18 @@ import { connect } from "react-redux";
 
 const Board = ({ board, dispatch }) => {
   return (
-    <div>
-      <table>
+    <div className="boardContainer">
+      <table className="board">
         <tbody>
           {board.map((row, rowNum) => {
             return (
-              <tr>
+              <tr key={rowNum}>
                 {row.map((cell, cellNum) => {
-                  let cellClass = cell.hasBeenClicked
-                    ? cell.value === "M"
-                      ? "mine"
-                      : cell.value > 0
-                      ? "number"
-                      : "empty"
-                    : cell.flagged
-                    ? "flagged"
-                    : "waiting";
-                  let cellContents =
-                    cellClass === "mine"
-                      ? "MINE"
-                      : cellClass === "number"
-                      ? cell.value
-                      : cellClass === "empty"
-                      ? ""
-                      : cellClass === "flagged"
-                      ? "Flag"
-                      : "";
+                  let cellClass = getCellClass(cell);
+                  let cellContents = getCellContents(cellClass, cell);
                   return (
                     <td
+                      key={rowNum + "," + cellNum}
                       rownum={rowNum}
                       cellnum={cellNum}
                       onClick={e => {
@@ -56,5 +40,33 @@ const Board = ({ board, dispatch }) => {
   );
 };
 
-const mapStateToProps = store => ({ board: store.board });
+const getCellClass = cell => {
+  return cell.hasBeenClicked
+    ? cell.value === "M"
+      ? "mine"
+      : cell.value > 0
+      ? "number _" + cell.value
+      : "empty"
+    : cell.flagged
+    ? "flagged"
+    : "waiting";
+};
+
+const getCellContents = (cellClass, cell) => {
+  return cellClass === "mine"
+    ? "MINE"
+    : cellClass.split(" ")[0] === "number"
+    ? cell.value
+    : cellClass === "empty"
+    ? ""
+    : cellClass === "flagged"
+    ? "Flag"
+    : "";
+};
+
+const mapStateToProps = store => ({
+  board: store.board,
+  victoryStatus: store.victoryStatus,
+  failureStatus: store.failureStatus
+});
 export default connect(mapStateToProps, null)(Board);

@@ -1,14 +1,40 @@
+body {
+  text-align: center;
+}
+.title {
+  font-family: "Bangers", monospace;
+}
 table {
   border: 1px solid black;
 }
-
-.mine {
-  background-color: red;
+.menuContainer {
+  width: 600px;
+  text-align: center;
 }
-
-.flagged {
+td.flagged {
+  height: 25px;
+  width: 25px;
+  font-size: 10px;
   background-color: orange;
   border-style: outset;
+}
+.banner {
+  width: 100%;
+  background-color: rgb(157, 149, 149);
+}
+.boardContainer {
+  align-content: center;
+}
+.board {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mine {
+  width: 25px;
+  height: 25px;
+  background-color: red;
 }
 
 .waiting {
@@ -22,7 +48,30 @@ table {
 }
 
 .square {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
   font-size: 15px;
+  text-align: center;
+}
+
+._1 {
+  color: blue;
+}
+
+._2 {
+  color: green;
+}
+
+._3 {
+  color: red;
+}
+
+._4 {
+  color: navy;
+}
+
+._5 {
+  color: maroon;
 }
