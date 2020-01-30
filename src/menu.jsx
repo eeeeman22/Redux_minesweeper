@@ -1,12 +1,12 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 import {
   resetBoard,
   changeRequestedBoardSize,
   changeRequestedBoardDifficulty,
   changeTimerLimit,
   avalancheActionCreator
-} from "./actions";
+} from './actions';
 
 // Allow the user to adjust
 // the difficulty level (board size + number of mines)
@@ -31,7 +31,7 @@ const Menu = ({
                 onChange={e => {
                   dispatch(changeRequestedBoardSize(e.target.value));
                 }}
-              />{" "}
+              />{' '}
             </td>
             <td>
               {boardParams}X{boardParams}
@@ -53,15 +53,15 @@ const Menu = ({
             </td>
             <td>
               {Number(requestedBoardDifficulty) === 3
-                ? "Impossible"
+                ? 'Impossible'
                 : requestedBoardDifficulty < 5
-                ? "Hard"
+                ? 'Hard'
                 : requestedBoardDifficulty < 7
-                ? "Medium"
+                ? 'Medium'
                 : requestedBoardDifficulty < 9
-                ? "Easy"
-                : "Very Easy"}
-              {" " + requestedBoardDifficulty}tiles/mine
+                ? 'Easy'
+                : 'Very Easy'}
+              {' ' + requestedBoardDifficulty}tiles/mine
             </td>
           </tr>
           <tr>
@@ -94,7 +94,7 @@ const Menu = ({
           dispatch(avalancheActionCreator());
         }}
       >
-        avalanche!
+        Avalanche!
       </button>
     </div>
   );

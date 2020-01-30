@@ -7,13 +7,13 @@ import {
   INCREMENT_TIMER,
   CHANGE_TIMER_LIMIT,
   AVALANCHE
-} from "./actions";
+} from './actions';
 import {
   createInitialState,
   recursiveBoardCheck,
   checkForVictory,
   avalanche
-} from "./boardFunctions.js";
+} from './boardFunctions.js';
 
 const initialState = createInitialState(10, 5);
 // TODO: split cases into seperate funcs, like toggleFlagged and click should be sep. should RUN the minesweeperApp
@@ -24,7 +24,7 @@ function minesweeperApp(state = initialState, action) {
   switch (action.type) {
     case CLICKED:
       // need ref to location from action
-      if (state.board[location[0]][location[1]].value === "M") {
+      if (state.board[location[0]][location[1]].value === 'M') {
         // you clicked on a mine! you lose! still need to update the board so that it displays properly.
         let failureBoard = JSON.parse(JSON.stringify(state));
         failureBoard.failureStatus = true;
@@ -75,8 +75,10 @@ function minesweeperApp(state = initialState, action) {
         requestedBoardDifficulty: action.difficulty
       });
     case INCREMENT_TIMER:
+      console.log('increment timer');
       if (state.timer + 1 > state.timerLimit) {
-        return state;
+        console.log('failure');
+        return Object.assign({}, state, { failureStatus: true });
       }
       return Object.assign({}, state, state.timer++);
     case CHANGE_TIMER_LIMIT:

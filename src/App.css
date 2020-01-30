@@ -2,7 +2,7 @@ body {
   text-align: center;
 }
 .title {
-  font-family: "Bangers", monospace;
+  font-family: 'Bangers', monospace;
 }
 table {
   border: 1px solid black;
@@ -23,7 +23,8 @@ td.flagged {
   background-color: rgb(157, 149, 149);
 }
 .boardContainer {
-  align-content: center;
+  text-align: center;
+  width: ;
 }
 .board {
   margin-top: auto;
@@ -50,7 +51,7 @@ td.flagged {
 .square {
   width: 25px;
   height: 25px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   font-size: 15px;
   text-align: center;
